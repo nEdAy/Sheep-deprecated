@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.neday.bomb.view.HeaderLayout
+        android:id="@+id/top_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.0dp"
+        android:layout_weight="1.0"
+        android:background="@color/gray">
+
+        <ImageView
+            android:id="@+id/skin_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20.0dp"
+            android:layout_marginLeft="40.0dp"
+            android:layout_marginRight="40.0dp"
+            android:layout_marginTop="20.0dp" />
+    </FrameLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@android:color/white"
+        android:foregroundGravity="center"
+        android:stretchColumns="1">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <ImageButton
+                android:id="@+id/left_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_span="1"
+                android:background="@android:color/transparent"
+                android:maxWidth="5.0dp"
+                android:paddingLeft="12.0dp"
+                android:paddingRight="7.0dp"
+                android:src="@drawable/cs_arrow_left" />
+
+            <HorizontalScrollView
+                android:id="@+id/skin_listView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_span="8"
+                android:background="@android:color/white"
+                android:fadingEdge="none"
+                android:foregroundGravity="center"
+                android:minHeight="100.0dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/my_gallery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:foregroundGravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal" />
+            </HorizontalScrollView>
+
+            <ImageButton
+                android:id="@+id/right_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_span="1"
+                android:background="@android:color/transparent"
+                android:maxWidth="5.0dp"
+                android:paddingLeft="7.0dp"
+                android:paddingRight="12.0dp"
+                android:src="@drawable/cs_arrow_right" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

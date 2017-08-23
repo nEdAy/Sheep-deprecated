@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.neday.bomb.view.HeaderLayout
+        android:id="@+id/top_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:id="@+id/shake_background_lay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_shake">
+
+        <ImageView
+            android:id="@+id/iv_shake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="48.0dp"
+            android:padding="20dp"
+            android:scaleType="center"
+            android:src="@drawable/shake_original_image" />
+
+        <TextView
+            android:id="@+id/shake_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_shake"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20.0dp"
+            android:text="天  天  摇"
+            android:textColor="@android:color/white"
+            android:textSize="28.0sp" />
+
+
+        <RelativeLayout
+            android:id="@+id/shake_remain_times_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/shake_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp">
+
+            <TextView
+                android:id="@+id/tv_shake_times"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="您今天还可以摇0次"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/global_mid_text_size" />
+
+            <RelativeLayout
+                android:id="@+id/rl_shake_voice"
+                android:layout_width="40.0dp"
+                android:layout_height="40.0dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="40.0dp">
+
+                <ImageView
+                    android:id="@+id/iv_cancel_voice"
+                    android:layout_width="20.0dp"
+                    android:layout_height="20.0dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_voice_open" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_shake_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/shake_remain_times_lay"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5.0dp"
+            android:text="中奖记录"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/global_mid_text_size" />
+    </RelativeLayout>
+
+</LinearLayout>

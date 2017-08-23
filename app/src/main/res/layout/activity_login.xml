@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <com.neday.bomb.view.HeaderLayout
+        android:id="@+id/top_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:id="@+id/rl_phone"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dp"
+        android:layout_marginLeft="20.0dp"
+        android:layout_marginRight="20.0dp"
+        android:layout_marginTop="30.0dp">
+
+        <com.neday.bomb.view.ClearEditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_phone"
+            android:drawablePadding="8.0dp"
+            android:hint="@string/tx_hint_phone"
+            android:inputType="number"
+            android:maxLength="11"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textSize="@dimen/global_mid_text_size" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_login_password"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dp"
+        android:layout_marginLeft="20.0dp"
+        android:layout_marginRight="20.0dp"
+        android:layout_marginTop="10.0dp">
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_edit_text"
+            android:drawableLeft="@drawable/ic_key"
+            android:drawablePadding="8.0dp"
+            android:hint="@string/tx_hint_password"
+            android:inputType="textPassword"
+            android:maxLength="16"
+            android:maxLines="1"
+            android:paddingEnd="15.0dp"
+            android:paddingStart="15.0dp"
+            android:textSize="@dimen/global_mid_text_size" />
+
+        <ImageView
+            android:id="@+id/iv_password_see"
+            android:layout_width="wrap_content"
+            android:layout_height="50.0dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/view3"
+            android:gravity="center"
+            android:paddingLeft="15.0dp"
+            android:paddingRight="15.0dp"
+            android:src="@drawable/ic_see_normal" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="1.0dp"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/tv_lostPassword"
+            android:background="@color/line_color" />
+
+        <TextView
+            android:id="@+id/tv_lostPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignBaseline="@+id/et_password"
+            android:layout_alignBottom="@+id/et_password"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:minWidth="60.0dp"
+            android:paddingLeft="5.0dp"
+            android:paddingRight="5.0dp"
+            android:text="@string/tx_lost_password"
+            android:textColor="@color/label_color" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="45.0dp"
+        android:layout_marginLeft="20.0dp"
+        android:layout_marginRight="20.0dp"
+        android:layout_marginTop="20.0dp"
+        android:background="@drawable/global_red_click_with_corner_selector"
+        android:gravity="center"
+        android:text="@string/tx_login"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/global_big_text_size" />
+
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20.0dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/tx_register_new"
+        android:textColor="@color/red"
+        android:textSize="@dimen/global_big_text_size" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30.0dp"
+        android:layout_marginRight="30.0dp"
+        android:layout_marginTop="80.0dp"
+        android:src="@drawable/ic_logo_kb" />
+
+</LinearLayout>

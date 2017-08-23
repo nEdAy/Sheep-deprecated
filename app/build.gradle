@@ -1,0 +1,220 @@
+apply plugin: 'com.android.application'
+apply plugin: 'bugly'
+// Bugly
+bugly {
+    appId = '6e86c3ff8d'
+    appKey = 'fc2855db-8bcb-4825-9ae9-38f0d6a45ae5'
+}
+// 配置了所有android构建的参数
+android {
+    //签名1
+    signingConfigs {
+        nEdAy {
+            try {
+                storeFile file('Z:/Users/nEdAy/nEdAy.jks')
+                storePassword KEYSTORE_PASSWORD
+                keyAlias 'nEdAy'
+                keyPassword KEY_PASSWORD
+            } catch (ignored) {
+                throw new InvalidUserDataException("You should define KEYSTORE_PASSWORD and KEY_PASSWORD in gradle.properties.")
+            }
+        }
+    }
+    // 编译使用SDK版本
+    compileSdkVersion 26
+    // 编译工具的版本
+    buildToolsVersion "26.0.1"
+    defaultConfig {
+        // 包名
+        applicationId "com.neday.bomb"
+        // Sdk最低支持版本
+        minSdkVersion 17
+        // 逃避权限管理,壓制目标SDK版本，如果目标设备的API版本正好等于此数值，就不会为此程序开启兼容性检查判断的工作
+        //noinspection OldTargetApi
+        targetSdkVersion 22
+        // 版本号
+        versionCode 20000
+        versionName "20.0.0"
+        resConfigs "zh"
+        // 所有版本原生配置
+        ndk {
+            abiFilters 'armeabi', 'x86'
+        }
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.1'
+    }
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    buildTypes {
+        debug {
+            // 是否是新版本
+            buildConfigField "boolean", "VSRSION_NEW", "true"
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            // 设置压缩对齐 Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的资源文件  慎用危险！
+            // 如方法getResources().getIdentifier无效,另阿里百川和京东开普勒的图片签名认证会出现问题
+            shrinkResources true
+            signingConfig signingConfigs.nEdAy
+            // 设置是否混淆
+            minifyEnabled true
+            // 设置混淆配置文件 proguard-android.txt在sdk目录里面，不用管
+            // proguard-rules.pro是我们自己配的混淆文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        // 发布时候的设置
+        release {
+            // 是否是新版本
+            buildConfigField "boolean", "VSRSION_NEW", "true"
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            // 设置压缩对齐 Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的资源文件  慎用危险！
+            // 如方法getResources().getIdentifier无效,另阿里百川和京东开普勒的图片签名认证会出现问题
+            shrinkResources true
+            signingConfig signingConfigs.nEdAy
+            // 设置是否混淆
+            minifyEnabled true
+            // 设置混淆配置文件 proguard-android.txt在sdk目录里面，不用管
+            // proguard-rules.pro是我们自己配的混淆文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    aaptOptions {
+        // 如果你已经做了图片压缩了，那么建议手动禁止这个功能，否则“可能会”出现图片二次压缩后反而变大的情况
+        cruncherEnabled = false
+    }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+}
+
+repositories {
+    // 就是放aar的目录地址
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+// 依赖的工具包
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:2.8.47'
+
+    //noinspection GradleCompatible
+    androidTestImplementation 'com.android.support.test:runner:0.6-alpha'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
+
+    implementation 'com.android.support:support-v4:26.0.1'
+    implementation 'com.android.support:cardview-v7:26.0.1'
+    implementation 'com.android.support:recyclerview-v7:26.0.1'
+
+    // Leakcanary 发布前清理
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.2'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.2'
+    testImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.2'
+
+    // OkHttp 3
+    compile 'com.squareup.okhttp3:okhttp:3.8.1'
+
+    // OkHttp 3 logging-interceptor
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+
+    // 短信依赖
+    implementation name: 'SMSSDK-2.1.2', ext: 'aar'
+
+    // 沉浸式状态栏
+    implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+
+    // Fresco
+    implementation 'com.facebook.fresco:fresco:1.5.0'
+    implementation 'com.facebook.fresco:imagepipeline-okhttp3:1.5.0'
+
+    // RxJava 2
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.3'
+
+    // RxAndroid 2
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+    // Retrofit 2
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+
+    // Retrofit Converter-Gson 2
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
+
+    // Rxlifecycle
+    implementation 'com.trello:rxlifecycle:1.0'
+
+    // If you want pre-written Activities and Fragments you can subclass as providers
+    implementation 'com.trello:rxlifecycle-components:1.0'
+
+    // RxBus
+    implementation 'com.hwangjr.rxbus:rxbus:1.0.5'
+
+    // Logger
+    implementation 'com.orhanobut:logger:2.1.1'
+
+    // FlycoUI
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    implementation 'com.flyco.banner:FlycoBanner_Lib:2.0.2@aar'
+    implementation 'com.flyco.labelview:FlycoLabelView_Lib:1.0.2@aar'
+    implementation 'com.flyco.dialog:FlycoDialog_Lib:1.3.2@aar'
+
+    // SharedPreferences工具类
+    implementation 'com.github.NashLegend:AnyPref:1.2.6'
+
+    // BaseRecyclerViewAdapterHelper
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:v2.5.0'
+
+    // Bugly Upgrade
+    implementation 'com.tencent.bugly:crashreport_upgrade:1.3.1'
+    implementation 'com.tencent.bugly:nativecrashreport:3.3.1'
+
+    // 获取照片（拍照或从相册、文件中选择）、裁剪图片、压缩图片
+    implementation 'com.jph.takephoto:takephoto_library:3.0.3'
+
+    // (必选)安全基础 基础安全组件 安全黑匣子（无线保镖），加密&解密，安全签名，风控相关内容；
+    implementation 'com.taobao.android:securityguardaar3:5.1.81@aar'
+
+    // (必选)登陆授权 90kb + 11kb+ 62kb
+    implementation 'com.ali.auth.sdk:alibabauth_core:1.1.4@jar'
+    implementation 'com.ali.auth.sdk:alibabauth_ui:1.1.4@aar'
+    implementation 'com.ali.auth.sdk:alibabauth_ext:1.1.4@jar'
+
+    // (必选)UT deviceID，主要用于计算设备的uttid，设备唯一标识 （67kb）
+    implementation 'com.taobao.android:utdid4all:1.1.5.3_proguard@jar'
+
+    // (必选)UT，用于组件、接口可用性统计（337kb）
+    implementation 'com.alibaba.mtl:app-monitor-sdk:2.5.1.1_for_bc_proguard@jar'
+
+    // (必选)基础电商组件 包含打开detail,淘客分润,jsbridge注入等功能.(211kb)
+    implementation 'com.alibaba.sdk.android:alibc_trade_sdk:3.1.1.8@aar'
+
+    // (必选)Mtop，网关（稳定的高性能无线RPC网关，网关本身包含了一套安全体系，包括加密传输、防攻击、防刷、防篡改、过载保护等安全策略，
+
+    // 同时针对无线网络的特点，在连通性、网络加速、流量方面进行了针对性优化）(177kb)
+    implementation 'com.taobao.android:mtopsdk_allinone_open:1.2.2.4@jar'
+
+    // (必选)applink，打通“手机淘宝”与三方app的桥梁，实现手机淘宝与三方app之间的往返跳转,包括登陆时跳手淘授权,用手淘打开商品页,店铺等(53kb)
+    implementation 'com.taobao.android:alibc_applink:2.0.0.7@jar'
+
+    // (必选)支付宝SDK，手机支付宝支付接口开发包主要用来向第三方应用程序提供便捷、安全以及可靠的支付服务。
+
+    // 使用支付宝极简支付的isv需要该组件,否则会降级到h5支付,功能不会有影响,但是用户体验会降低(245kb)
+    implementation 'com.alibaba.alipay:alipaySingle:20160825@jar'
+
+    // 【可选】安全高级，如使用了发放红包、优惠券高级功能，则必须引入
+    implementation 'com.taobao.android:securitybodyaar3:5.1.25@aar'
+
+    // fastjson
+    implementation 'com.alibaba:fastjson:1.2.9'
+}

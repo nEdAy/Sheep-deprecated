@@ -1,0 +1,34 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        // 声明仓库源，比如我们构建了一个安卓的库，现在想要把库上传到jcenter中供别人一起使用，则可以上传到jcenter中
+        // 具体上传步骤见：
+        // http://www.jcodecraeer.com/a/anzhuokaifa/Android_Studio/2015/0227/2502.html
+        jcenter()
+    }
+    dependencies {
+        // 说明gradle的版本号
+        classpath 'com.android.tools.build:gradle:3.0.0-beta2'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+        classpath 'com.tencent.bugly:symtabfileuploader:2.1.0'
+    }
+}
+
+// 所有项目都继承这个配置
+allprojects {
+    repositories {
+        // 引入远程仓库
+        google()
+        jcenter()
+        // 引入其他私有maven仓库
+        maven { url "https://jitpack.io" }
+        // 阿里百川
+        maven { url "http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories/" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

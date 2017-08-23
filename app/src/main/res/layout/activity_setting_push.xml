@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_main_more"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical">
+
+    <com.neday.bomb.view.HeaderLayout
+        android:id="@+id/top_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/rl_push_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_notification"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/global_title_banner_height"
+                android:background="@drawable/global_click_selector">
+
+                <ImageView
+                    android:id="@+id/iv_notification"
+                    android:layout_width="@dimen/global_title_banner_image_min"
+                    android:layout_height="@dimen/global_title_banner_image_min"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15.0dp"
+                    android:src="@drawable/ic_ac" />
+
+                <TextView
+                    android:id="@+id/tv_notification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15.0dp"
+                    android:layout_toRightOf="@+id/iv_notification"
+                    android:text="开启订阅推送"
+                    android:textColor="@color/black" />
+
+                <ImageView
+                    android:id="@+id/iv_open_notification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/ic_open"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/iv_close_notification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/ic_close"
+                    android:visibility="invisible" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/divide_line_height"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="15.0dp"
+                    android:layout_marginRight="15.0dp"
+                    android:layout_toRightOf="@+id/iv_notification"
+                    android:background="@color/line_color" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_voice"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/global_title_banner_height"
+                android:background="@drawable/global_click_selector">
+
+                <ImageView
+                    android:id="@+id/iv_voice"
+                    android:layout_width="@dimen/global_title_banner_image_min"
+                    android:layout_height="@dimen/global_title_banner_image_min"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15.0dp"
+                    android:src="@drawable/ic_nc" />
+
+                <TextView
+                    android:id="@+id/tv_voice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15.0dp"
+                    android:layout_toRightOf="@+id/iv_voice"
+                    android:text="声音"
+                    android:textColor="@color/black" />
+
+                <ImageView
+                    android:id="@+id/iv_open_voice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/ic_open"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/iv_close_voice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/ic_close"
+                    android:visibility="invisible" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/divide_line_height"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="15.0dp"
+                    android:layout_marginRight="15.0dp"
+                    android:layout_toRightOf="@+id/iv_voice"
+                    android:background="@color/line_color" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_vibrate"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/global_title_banner_height"
+                android:background="@drawable/global_click_selector">
+
+                <ImageView
+                    android:id="@+id/iv_vibrate"
+                    android:layout_width="@dimen/global_title_banner_image_min"
+                    android:layout_height="@dimen/global_title_banner_image_min"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15.0dp"
+                    android:src="@drawable/ic_hc" />
+
+                <TextView
+                    android:id="@+id/tv_vibrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15.0dp"
+                    android:layout_toRightOf="@+id/iv_vibrate"
+                    android:text="震动"
+                    android:textColor="@color/black" />
+
+                <ImageView
+                    android:id="@+id/iv_open_vibrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/ic_open"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/iv_close_vibrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/ic_close"
+                    android:visibility="invisible" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_province_flow"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/global_title_banner_height"
+                android:layout_marginTop="15.0dp"
+                android:background="@drawable/global_click_selector">
+
+                <ImageView
+                    android:id="@+id/iv_province_flow"
+                    android:layout_width="@dimen/global_title_banner_image_min"
+                    android:layout_height="@dimen/global_title_banner_image_min"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15.0dp"
+                    android:src="@drawable/ic_me_share" />
+
+                <TextView
+                    android:id="@+id/tv_province_flow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15.0dp"
+                    android:layout_toRightOf="@+id/iv_province_flow"
+                    android:text="@string/tx_quiet_time"
+                    android:textColor="@color/black" />
+
+                <ImageView
+                    android:id="@+id/iv_open_province_flow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/ic_open"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/iv_close_province_flow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/ic_close"
+                    android:visibility="invisible" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/divide_line_height"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="15.0dp"
+                    android:layout_marginRight="15.0dp"
+                    android:layout_toRightOf="@+id/iv_province_flow"
+                    android:background="@color/line_color" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_quiet_period"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/global_title_banner_height"
+                android:background="@drawable/global_click_selector">
+
+                <ImageView
+                    android:id="@+id/iv_quiet_period"
+                    android:layout_width="@dimen/global_title_banner_image_min"
+                    android:layout_height="@dimen/global_title_banner_image_min"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15.0dp"
+                    android:src="@drawable/ic_me_feedback" />
+
+                <TextView
+                    android:id="@+id/tv_quiet_period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15.0dp"
+                    android:layout_toRightOf="@+id/iv_quiet_period"
+                    android:text="从0：00到6：00"
+                    android:textColor="@color/black" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/sc_arrow_right" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/ll_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <NumberPicker
+                        android:id="@+id/mHourSpinner_0"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textSize="20sp" />
+
+                    <NumberPicker
+                        android:id="@+id/mMinuteSpinner_0"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="到"
+                        android:textSize="20sp" />
+
+                    <NumberPicker
+                        android:id="@+id/mHourSpinner_1"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textSize="20sp" />
+
+                    <NumberPicker
+                        android:id="@+id/mMinuteSpinner_1"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_btn_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/global_title_banner_height"
+                    android:layout_below="@+id/ll_time"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginRight="80dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/global_red_click_with_corner_selector"
+                    android:gravity="center"
+                    android:text="@string/tx_setting"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/global_big_text_size" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>
