@@ -2,4 +2,4 @@
 口袋快爆——Android客户端
 
 Android客户端 https://github.com/nEdAy/Sheep
-C Shape服务端 https://github.com/nEdAy/Sheep-API
+C#服务端RESTful API https://github.com/nEdAy/Sheep-API
