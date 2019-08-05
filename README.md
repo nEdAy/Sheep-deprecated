@@ -1,4 +1,4 @@
-# Sheep
+# Sheep @deprecated
 口袋快爆——Android客户端
 
 Android客户端 https://github.com/nEdAy/Sheep
